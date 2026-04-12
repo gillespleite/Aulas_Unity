@@ -48,6 +48,45 @@
                     "choices": []
                 }
             ]
+        },
+        {
+            "npcName": "Guard",
+            "nodes": [
+                {
+                    "nodeId": "inicio",
+                    "npcText": "Você é novo por aqui?",
+                    "choices": [
+                        {
+                            "choiceText": "Sim",
+                            "nextNodeId": "sim_node"
+                        },
+                        {
+                            "choiceText": "Não",
+                            "nextNodeId": "nao_node"
+                        },
+                        {
+                            "choiceText": "Não me incomode com isso",
+                            "nextNodeId": "naoincomode_node"
+                        }
+                    ]
+                },
+                {
+                    "nodeId": "sim_node",
+                    "npcText": "Seja bem vindo!",
+                    "choices": []
+                },
+                {
+                    "nodeId": "nao_node",
+                    "npcText": "Então nao fique ocupando meu tempo",
+                    "choices": []
+                },
+                {
+                    "nodeId": "naoincomode_node",
+                    "npcText": "Olha como você fala, senão vai preso!",
+                    "choices": []
+                }
+
+            ]
         }
     ]
 }
