@@ -1,0 +1,53 @@
+{
+    "dialogues": [
+        {
+            "npcName": "Fred",
+            "nodes": [
+                {
+                    "nodeId": "inicio",
+                    "npcText": "Do you want to upgrade your troops' armor today?",
+                    "choices": [
+                        {
+                            "choiceText": "Yes",
+                            "nextNodeId": "yes_node"
+                        },
+                        {
+                            "choiceText": "No",
+                            "nextNodeId": "no_node"
+                        }
+                    ]
+                },
+                {
+                    "nodeId": "yes_node",
+                    "npcText": "Excellent choice!",
+                    "choices": []
+                },
+                {
+                    "nodeId": "no_node",
+                    "npcText": "I understand. Good luck.",
+                    "choices": []
+                }
+            ]
+        },
+        {
+            "npcName": "Lucy",
+            "nodes": [
+                {
+                    "nodeId": "inicio",
+                    "npcText": "Stay alert! The heroes usually attack from the east flank.",
+                    "choices": [
+                        {
+                            "choiceText": "Continue",
+                            "nextNodeId": "line_2"
+                        }
+                    ]
+                },
+                {
+                    "nodeId": "line_2",
+                    "npcText": "Hold your position and protect the dark lord!",
+                    "choices": []
+                }
+            ]
+        }
+    ]
+}
