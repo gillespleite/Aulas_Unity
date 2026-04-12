@@ -1,0 +1,53 @@
+{
+    "dialogues": [
+        {
+            "npcName": "Fred",
+            "nodes": [
+                {
+                    "nodeId": "inicio",
+                    "npcText": "Você quer melhorar as armaduras das suas tropas hoje?",
+                    "choices": [
+                        {
+                            "choiceText": "Sim",
+                            "nextNodeId": "sim_node"
+                        },
+                        {
+                            "choiceText": "Não",
+                            "nextNodeId": "nao_node"
+                        }
+                    ]
+                },
+                {
+                    "nodeId": "sim_node",
+                    "npcText": "Excelente escolha!",
+                    "choices": []
+                },
+                {
+                    "nodeId": "nao_node",
+                    "npcText": "Entendo. Boa sorte.",
+                    "choices": []
+                }
+            ]
+        },
+        {
+            "npcName": "Lucy",
+            "nodes": [
+                {
+                    "nodeId": "inicio",
+                    "npcText": "Fique atento! Os heróis costumam atacar pelo flanco leste.",
+                    "choices": [
+                        {
+                            "choiceText": "Continuar",
+                            "nextNodeId": "fala_2"
+                        }
+                    ]
+                },
+                {
+                    "nodeId": "fala_2",
+                    "npcText": "Mantenha a posição e proteja o lorde das trevas!",
+                    "choices": []
+                }
+            ]
+        }
+    ]
+}
