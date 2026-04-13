@@ -4,7 +4,7 @@ using UnityEngine; // Biblioteca principal da engine Unity
 using UnityEngine.UI; // Necessário para interagir com componentes clássicos de UI (como Button)
 using TMPro; // Necessário para utilizar a TextMeshPro, sistema avançado de renderização de texto
 using System;
-using static Unity.Burst.Intrinsics.X86;
+
 
 // As classes abaixo definem a estrutura de dados que espelha o arquivo JSON.
 // O atributo [System.Serializable] permite que o JsonUtility converta o texto JSON nesses objetos.
