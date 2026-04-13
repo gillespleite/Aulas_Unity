@@ -83,6 +83,7 @@
                 {
                     "nodeId": "naoincomode_node",
                     "npcText": "Olha como você fala, senão vai preso!",
+                    "acaoGatilho": "dar_pocao",
                     "choices": []
                 }
 

@@ -3,6 +3,8 @@ using System.Collections.Generic; // Necessário para o uso de Listas e Dicionári
 using UnityEngine; // Biblioteca principal da engine Unity
 using UnityEngine.UI; // Necessário para interagir com componentes clássicos de UI (como Button)
 using TMPro; // Necessário para utilizar a TextMeshPro, sistema avançado de renderização de texto
+using System;
+using static Unity.Burst.Intrinsics.X86;
 
 // As classes abaixo definem a estrutura de dados que espelha o arquivo JSON.
 // O atributo [System.Serializable] permite que o JsonUtility converta o texto JSON nesses objetos.
@@ -16,10 +18,12 @@ public class DialogueDatabase { public DialogueEntry[] dialogues; }
 public class Choice { public string choiceText; public string nextNodeId; }
 
 [System.Serializable]
-public class DialogueNode { public string nodeId; public string npcText; public Choice[] choices; }
+public class DialogueNode { public string nodeId; public string npcText; public string acaoGatilho; public Choice[] choices; }
 
 public class SimpleDialogManager : MonoBehaviour
 {
+
+    public static event Action<string> AoDispararAcaoDeDialogo;
     // Define qual idioma será carregado (0 ou 1). Fica visível no Inspector.
     [SerializeField]
     int lingua;
@@ -29,6 +33,7 @@ public class SimpleDialogManager : MonoBehaviour
     public GameObject painelUI; // O painel pai que contém toda a interface de diálogo.
     public TMP_Text textoDoDialogo; // O componente de texto onde a fala do NPC aparece.
     public TMP_Text nomeNPC; // O componente de texto que exibe o nome do NPC.
+    
 
     // Cabeçalho para organizar o Inspector.
     [Header("Configuração Dinâmica de Botões")]
@@ -129,6 +134,12 @@ public class SimpleDialogManager : MonoBehaviour
             return;
         }
 
+       // Verifica se o nó atual possui uma ação registrada e dispara o evento
+    if (!string.IsNullOrEmpty(noAlvo.acaoGatilho))
+        {
+            // Se alguém estiver escutando o evento (? invoca), manda a string da ação
+            AoDispararAcaoDeDialogo?.Invoke(noAlvo.acaoGatilho);
+        }
         // Atualiza a interface com a fala do NPC.
         textoDoDialogo.text = noAlvo.npcText;
 
